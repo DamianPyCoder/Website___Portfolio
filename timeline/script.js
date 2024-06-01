@@ -1,12 +1,13 @@
 // Array de eventos
 var eventos = [
-    { fecha: '1914', descripcion: 'Primera Guerra Mundial.', color: 'azul' },
-    { fecha: '1959', descripcion: 'Segunda Guerra Mundial.', color: 'rojo' },
-    { fecha: '2021-2024', descripcion: 'ITIC BCN: DESARROLLO DE APLICACIONES MULTIPLATAFORMA', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itic.png' },
-    { fecha: '1929', descripcion: 'El hombre llega a la luna en la misión Apolo 11.', color: 'rojo' },
-    { fecha: '1989', descripcion: 'Caída del Muro de Berlín.', color: 'azul' },
-    { fecha: '2001', descripcion: 'Atentados del 11 de septiembre.', color: 'rojo' }
+    { fecha: '1914', descripcion: 'Primera Guerra Mundial.', centroEstudios: 'Universidad de Oxford', color: 'azul' },
+    { fecha: '1959', descripcion: 'Segunda Guerra Mundial.', centroEstudios: 'Universidad de Cambridge', color: 'rojo' },
+    { fecha: '2021-2024', descripcion: 'DESARROLLO DE APLICACIONES MULTIPLATAFORMA', centroEstudios: 'ITIC Barcelona', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itic.png' },
+    { fecha: '1929', descripcion: 'El hombre llega a la luna en la misión Apolo 11.', centroEstudios: 'MIT', color: 'rojo' },
+    { fecha: '1989', descripcion: 'Caída del Muro de Berlín.', centroEstudios: 'Universidad de Harvard', color: 'azul' },
+    { fecha: '2001', descripcion: 'Atentados del 11 de septiembre.', centroEstudios: 'Universidad de Stanford', color: 'rojo' }
 ];
+
 
 // Eventos para los interruptores
 document.getElementById('switchRojo').addEventListener('click', function() {
@@ -39,7 +40,7 @@ function toggleEventos(color, button) {
     } else {
         button.classList.add('active');
         eventosFiltrados.forEach(function(evento) {
-            var eventoEl = crearEvento(evento.fecha, evento.descripcion, evento.color, evento.imagenURL); // Pasa la imagenURL como argumento
+            var eventoEl = crearEvento(evento.fecha, evento.descripcion, evento.color, evento.imagenURL, evento.centroEstudios); 
             timeline.appendChild(eventoEl);
         });
     }
@@ -47,13 +48,17 @@ function toggleEventos(color, button) {
     ordenarEventosPorFecha();
 }
 
-function crearEvento(fecha, descripcion, color, imagenURL) {
+
+function crearEvento(fecha, descripcion, color, imagenURL, centroEstudios) {
     var container = document.createElement('div');
     container.id = fecha;
     container.classList.add('container');
 
     var content = document.createElement('div');
     content.classList.add('content');
+
+    var imgSection = document.createElement('div');
+    imgSection.classList.add('img-section');
 
     var img = document.createElement('img');
     img.src = imagenURL; // URL de la imagen
@@ -63,30 +68,63 @@ function crearEvento(fecha, descripcion, color, imagenURL) {
     img.style.width = "100px"; // Ancho de 200 píxeles
     img.style.height = "100px"; // Alto de 150 píxeles
 
-    var h2 = document.createElement('h2');
-    h2.textContent = fecha;
+    imgSection.appendChild(img); // Agregamos la imagen a su propia sección
 
-    var p = document.createElement('p');
-    p.textContent = descripcion;
+    var dateDescSection = document.createElement('div');
+    dateDescSection.classList.add('date-desc-section');
 
-    content.appendChild(img); // Agregamos la imagen primero
-    content.appendChild(h2);
-    content.appendChild(p);
+    // Creamos un elemento de párrafo para la fecha y le aplicamos estilos
+    var fechaP = document.createElement('p');
+    fechaP.textContent = fecha;
+
+    // Creamos un elemento de párrafo para la descripción y le aplicamos estilos
+    var descripcionP = document.createElement('p');
+    descripcionP.textContent = descripcion;
+    descripcionP.style.fontWeight = 'bold'; // Estilo negrita
+    descripcionP.style.fontSize = '16px'; // Tamaño de letra
+
+
+    dateDescSection.appendChild(descripcionP); // Descripción después
+
+    
+    // Creamos un elemento de párrafo para el centro de estudios si se proporciona
+    if (typeof centroEstudios !== 'undefined') {
+        var centroEstudiosP = document.createElement('p');
+        centroEstudiosP.textContent = "Centro de estudios: " + centroEstudios;
+        dateDescSection.appendChild(centroEstudiosP); // Centro de estudios después
+    }
+
+    // Agregamos los elementos de párrafo al contenedor de fecha y descripción
+    dateDescSection.appendChild(fechaP); // Fecha primero
+
+
+    content.appendChild(imgSection);
+    content.appendChild(dateDescSection);
     container.appendChild(content);
 
     if (color === 'rojo') {
         container.classList.add('right');
-        content.style.backgroundColor = '#FF9F9C'; // Color rojo
+        content.style.background = 'linear-gradient(to bottom, #FF9F9C, #ffffff)'; // Degradado de rojo a blanco (vertical)
     } else if (color === 'verde') {
         container.classList.add('left');
-        content.style.backgroundColor = '#5CD7A3'; // Color verde
+        content.style.background = 'linear-gradient(to bottom, #5CD7A3, #ffffff)'; // Degradado de verde a blanco (vertical)
     } else if (color === 'azul') {
         container.classList.add('left');
-        content.style.backgroundColor = '#87A5EF'; // Color azul
+        content.style.background = 'linear-gradient(to bottom, #87A5EF, #ffffff)'; // Degradado de azul a blanco (vertical)
     }
+
+    // Eliminar el borde inferior del degradado
+    content.style.borderBottom = 'none'; // Cambiado a 'none' para asegurar que no haya borde inferior
 
     return container;
 }
+
+
+
+
+
+
+
 
 
 

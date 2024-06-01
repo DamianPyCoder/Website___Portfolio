@@ -55,15 +55,35 @@ body {
 }*/
 
 .content {
-    padding: 20px;
+
+    height: 20vh; /* El alto es el 50% de la altura de la ventana */
+    padding: 10px;
     /* Usamos una imagen de fondo semitransparente */
     background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
     background-color: white; /* Color de fondo para navegadores que no soportan gradientes */
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde translúcido */
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */ /* Esta línea agrega el borde translúcido */
     z-index: 2; /* Aseguramos que el contenido esté encima de la línea */
 }
+
+
+
+
+
+/* Agregamos estilos para las dos secciones dentro de la caja de texto */
+.img-section {
+    width: 30%; /* Ocupa la mitad del ancho */
+    float: left; /* Alinea a la izquierda */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
+}
+
+.date-desc-section {
+    width: 70%; /* Ocupa la mitad del ancho */
+    float: left; /* Alinea a la izquierda */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
+}
+
 
 
 
