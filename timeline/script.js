@@ -5,7 +5,7 @@ var eventos = [
 
 
 
-    { fecha: '2014-2018', descripcion: 'GRADO DE HISTORIA', centroEstudios: 'Universitat de Barcelona (UB)', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/ub.png' },
+    { fecha: '2014-2018', descripcion: 'GRADO DE HISTORIA', centroEstudios: 'Universitat de Barcelona (UB)', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/ub2.png' },
     { fecha: '2021-2024', descripcion: 'DESARROLLO DE APLICACIONES MULTIPLATAFORMA', centroEstudios: 'ITIC Barcelona', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itic.png' },
     { fecha: '1929', descripcion: 'El hombre llega a la luna en la misión Apolo 11.', centroEstudios: 'MIT', color: 'rojo' },
     { fecha: '1989', descripcion: 'Caída del Muro de Berlín.', centroEstudios: 'Universidad de Harvard', color: 'azul' },
