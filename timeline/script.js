@@ -66,7 +66,7 @@ function mostrarEventos() {
     todosEventos.sort(function(a, b) {
         var fechaA = new Date(a.fecha.split('-')[0]);
         var fechaB = new Date(b.fecha.split('-')[0]);
-        return fechaA - fechaB;
+        return fechaB - fechaA;
     });
 
     todosEventos.forEach(function(evento) {
