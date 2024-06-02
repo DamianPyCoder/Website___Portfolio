@@ -1,6 +1,15 @@
 // Array de eventos
 var eventos = [
-    { fecha: '2024', descripcion: 'CIENCIA DE DATOS', centroEstudios: 'Universitat Oberta de Catalunya (UOC)', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/uocGreen2.png' },
+
+
+
+    { fecha: '2024-2028', descripcion: 'CIENCIA DE DATOS', centroEstudios: 'Universitat Oberta de Catalunya (UOC)', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/uocGreen2.png' },
+    
+    { fecha: '2025', descripcion: 'Psicología y Análisis de Datos con R en Ciencias del Comportamiento y de la Salud', centroEstudios: 'UNED (Universidad Nacional de Eduación a Distancia)', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/uned.png' },    
+    
+
+    
+    { fecha: '2024-2025', descripcion: 'Especialización en Inteligencia Artificial y Big Data', centroEstudios: 'ITIC Barcelona', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itic.png' },    
     { fecha: '2024', descripcion: 'PROFESOR DE PROGRAMACIÓN EN YOUTUBE', centroEstudios: 'www.youtube.com/@damiandevops', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/damiandevopslogo.png' },
     { fecha: '2024', descripcion: 'VOLUNTARIADO EN HOSPITAL.', centroEstudios: 'Hospital Sant Pau', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/12f2baa82b47a1971257d7283b9adcd9ee91ad6b/icons/timeline/santPau.svg' },
     { fecha: '2024', descripcion: 'ÁRABE y RUSO.', centroEstudios: 'EOI Drassanes. Intensivo de verano', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/eoidrassanes.png' },
