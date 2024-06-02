@@ -1,15 +1,48 @@
 // Array de eventos
 var eventos = [
-    { fecha: '1914', descripcion: 'Primera Guerra Mundial.', centroEstudios: 'Universidad de Oxford', color: 'azul' },
-    { fecha: '1959', descripcion: 'Segunda Guerra Mundial.', centroEstudios: 'Universidad de Cambridge', color: 'rojo' },
+
+    { fecha: '2024', descripcion: 'VOLUNTARIADO EN HOSPITAL.', centroEstudios: 'Hospital Sant Pau', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/12f2baa82b47a1971257d7283b9adcd9ee91ad6b/icons/timeline/santPau.svg' },
+    { fecha: '2024', descripcion: 'ÁRABE y RUSO.', centroEstudios: 'EOI Drassanes. Intensivo de verano', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/eoidrassanes.png' },
+    { fecha: '2023-2024', descripcion: 'GRADO DE PSICOLOGÍA.', centroEstudios: 'Universidad Nacional de Eduación a Distancia (UNED)', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/unedRojo.png' },
+    { fecha: '2023', descripcion: 'ALEMÁN Y FRANCÉS.', centroEstudios: 'EOI La Pau', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/eoilapau.png' },
+    { fecha: '2014-2018', descripcion: 'GRADO DE HISTORIA', centroEstudios: 'Universitat de Barcelona (UB)', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/ub4.png' },
+    { fecha: '2008-10', descripcion: 'GRADO SUPERIOR ADMINISTRACIÓN Y FINANZAS.', centroEstudios: 'IES Rambla Prim', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/iestamblaprim.png' },
+    { fecha: '2008', descripcion: 'ALEMÁN.', centroEstudios: 'Volkshochschule Berlin-Steglitz', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/vhs2.png' },
+    
+
+
+    { fecha: '2023', descripcion: 'Voluntario/cocinero ', centroEstudios: 'ONG cocinar', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/cocinando.png' },
+
+    
+
+
+    { fecha: '2000', descripcion: 'Inspector', centroEstudios: 'Strength. Public Space Control', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/strrength.jpg' },    
+    { fecha: '2000', descripcion: 'Voluntario ', centroEstudios: 'Llibres lliures', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/llibreslliuresRed.png' },
+
+    
+
+
+    { fecha: '2024', descripcion: 'CIENCIA DE DATOS', centroEstudios: 'Universitat Oberta de Catalunya (UOC)', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/uocGreen2.png' },    
+
+    { fecha: '2021-2024', descripcion: 'DESARROLLO DE APLICACIONES MULTIPLATAFORMA', centroEstudios: 'ITIC Barcelona', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itic.png' },    
+    { fecha: '2022-2023', descripcion: 'SOFTWARE DEVELOPER', centroEstudios: 'ITEQUIA', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itequia.png' },
+    { fecha: '2021-2024', descripcion: 'VARIOS CERTIFICADOS', centroEstudios: 'UDEMY', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/udemyGreen2.png' },
+
+
+    { fecha: '', descripcion: 'ÁRABE y RUSO', centroEstudios:  '...', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/ArabRus.png' },
+    { fecha: '', descripcion: 'FRANCÉS e ITALIANO', centroEstudios:  '...', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/frenchItal.png' },
+    { fecha: '', descripcion: 'INGLÉS y ALEMÁN', centroEstudios: 'Gracias a mis viajes (84 países en 6 años), vivir en Berlin, Bangkok y Cairo, o mis trabajos y amistades he consguido un nivel de inglés avanzado.', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/AleIng.png' },
+    { fecha: '', descripcion: 'CASTELLANO Y CATALÁN', centroEstudios: 'Ninguno. Son mis lenguas maternas', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/EspCat.png' },
+    
+    
+    { fecha: '2000', descripcion: 'Administrativo', centroEstudios: 'ToiToi', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/toitoiRed.png' },
+    { fecha: '2000', descripcion: 'Administrativo', centroEstudios: 'Ardix Hotels', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/ardix.png' },
+    { fecha: '2000', descripcion: 'Profesor ', centroEstudios: 'Amunt. Escola Fructuros Gelabert', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/fruitosGelabertRed.png' },
+
+    
 
 
 
-    { fecha: '2014-2018', descripcion: 'GRADO DE HISTORIA', centroEstudios: 'Universitat de Barcelona (UB)', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/ub2.png' },
-    { fecha: '2021-2024', descripcion: 'DESARROLLO DE APLICACIONES MULTIPLATAFORMA', centroEstudios: 'ITIC Barcelona', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itic.png' },
-    { fecha: '1929', descripcion: 'El hombre llega a la luna en la misión Apolo 11.', centroEstudios: 'MIT', color: 'rojo' },
-    { fecha: '1989', descripcion: 'Caída del Muro de Berlín.', centroEstudios: 'Universidad de Harvard', color: 'azul' },
-    { fecha: '2001', descripcion: 'Atentados del 11 de septiembre.', centroEstudios: 'Universidad de Stanford', color: 'rojo' }
 ];
 
 
@@ -94,7 +127,7 @@ function crearEvento(fecha, descripcion, color, imagenURL, centroEstudios) {
     // Creamos un elemento de párrafo para el centro de estudios si se proporciona
     if (typeof centroEstudios !== 'undefined') {
         var centroEstudiosP = document.createElement('p');
-        centroEstudiosP.textContent = "Centro de estudios: " + centroEstudios;
+        centroEstudiosP.textContent = "Lugar: " + centroEstudios;
         dateDescSection.appendChild(centroEstudiosP); // Centro de estudios después
     }
 
