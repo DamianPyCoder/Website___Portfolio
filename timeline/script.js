@@ -1,8 +1,7 @@
 // Array de eventos
 var eventos = [
-
-    { fecha: '2024', descripcion: 'CIENCIA DE DATOS', centroEstudios: 'Universitat Oberta de Catalunya (UOC)', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/uocGreen2.png' },    
-    { fecha: '2024', descripcion: 'PROFESOR DE PROGRAMACIÓN EN YOUTUBE', centroEstudios: 'www.youtube.com/@damiandevops', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/damiandevopslogo.png' },    
+    { fecha: '2024', descripcion: 'CIENCIA DE DATOS', centroEstudios: 'Universitat Oberta de Catalunya (UOC)', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/uocGreen2.png' },
+    { fecha: '2024', descripcion: 'PROFESOR DE PROGRAMACIÓN EN YOUTUBE', centroEstudios: 'www.youtube.com/@damiandevops', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/damiandevopslogo.png' },
     { fecha: '2024', descripcion: 'VOLUNTARIADO EN HOSPITAL.', centroEstudios: 'Hospital Sant Pau', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/12f2baa82b47a1971257d7283b9adcd9ee91ad6b/icons/timeline/santPau.svg' },
     { fecha: '2024', descripcion: 'ÁRABE y RUSO.', centroEstudios: 'EOI Drassanes. Intensivo de verano', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/eoidrassanes.png' },
     { fecha: '2024', descripcion: 'ÁRABE y RUSO', centroEstudios:  '...', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/ArabRus.png' },
@@ -23,15 +22,10 @@ var eventos = [
     { fecha: '2008', descripcion: 'ALEMÁN.', centroEstudios: 'Volkshochschule Berlin-Steglitz', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/vhs2.png' },
     { fecha: '2008', descripcion: 'INGLÉS y ALEMÁN', centroEstudios: 'Gracias a mis viajes (84 países en 6 años), vivir en Berlin, Bangkok y Cairo, o mis trabajos y amistades he consguido un nivel de inglés avanzado.', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/AleIng.png' },
     { fecha: '1997', descripcion: 'CASTELLANO Y CATALÁN', centroEstudios: 'Ninguno. Son mis lenguas maternas', color: 'azul', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/RandomAssets__flags/main/EspCat.png' },
-    
-    
-
-    
-
-
-
 ];
 
+// Variables para rastrear los eventos mostrados
+var eventosMostrados = { rojo: [], verde: [], azul: [] };
 
 // Eventos para los interruptores
 document.getElementById('switchRojo').addEventListener('click', function() {
@@ -48,34 +42,41 @@ document.getElementById('switchAzul').addEventListener('click', function() {
 
 // Función para mostrar u ocultar los eventos según el color
 function toggleEventos(color, button) {
-    var timeline = document.getElementById('timeline');
-    var eventosFiltrados = eventos.filter(function(evento) {
-        return evento.color === color;
-    });
-
     if (button.classList.contains('active')) {
         button.classList.remove('active');
-        eventosFiltrados.forEach(function(evento) {
-            var eventoEl = document.getElementById(evento.fecha);
-            if (eventoEl) {
-                eventoEl.remove();
-            }
-        });
+        eventosMostrados[color] = [];
     } else {
         button.classList.add('active');
-        eventosFiltrados.forEach(function(evento) {
-            var eventoEl = crearEvento(evento.fecha, evento.descripcion, evento.color, evento.imagenURL, evento.centroEstudios); 
-            timeline.appendChild(eventoEl);
+        eventosMostrados[color] = eventos.filter(function(evento) {
+            return evento.color === color;
         });
     }
-
-    ordenarEventosPorFecha();
+    mostrarEventos();
 }
 
+function mostrarEventos() {
+    var timeline = document.getElementById('timeline');
+    timeline.innerHTML = '';
+
+    var todosEventos = [];
+    for (var color in eventosMostrados) {
+        todosEventos = todosEventos.concat(eventosMostrados[color]);
+    }
+
+    todosEventos.sort(function(a, b) {
+        var fechaA = new Date(a.fecha.split('-')[0]);
+        var fechaB = new Date(b.fecha.split('-')[0]);
+        return fechaA - fechaB;
+    });
+
+    todosEventos.forEach(function(evento) {
+        var eventoEl = crearEvento(evento.fecha, evento.descripcion, evento.color, evento.imagenURL, evento.centroEstudios);
+        timeline.appendChild(eventoEl);
+    });
+}
 
 function crearEvento(fecha, descripcion, color, imagenURL, centroEstudios) {
     var container = document.createElement('div');
-    container.id = fecha;
     container.classList.add('container');
 
     var content = document.createElement('div');
@@ -85,42 +86,33 @@ function crearEvento(fecha, descripcion, color, imagenURL, centroEstudios) {
     imgSection.classList.add('img-section');
 
     var img = document.createElement('img');
-    img.src = imagenURL; // URL de la imagen
-    img.alt = "Imagen"; // Texto alternativo para la imagen (opcional)
+    img.src = imagenURL;
+    img.alt = "Imagen";
+    img.style.width = "100px";
+    img.style.height = "100px";
 
-    // Establecer el tamaño de la imagen
-    img.style.width = "100px"; // Ancho de 200 píxeles
-    img.style.height = "100px"; // Alto de 150 píxeles
-
-    imgSection.appendChild(img); // Agregamos la imagen a su propia sección
+    imgSection.appendChild(img);
 
     var dateDescSection = document.createElement('div');
     dateDescSection.classList.add('date-desc-section');
 
-    // Creamos un elemento de párrafo para la fecha y le aplicamos estilos
     var fechaP = document.createElement('p');
     fechaP.textContent = fecha;
 
-    // Creamos un elemento de párrafo para la descripción y le aplicamos estilos
     var descripcionP = document.createElement('p');
     descripcionP.textContent = descripcion;
-    descripcionP.style.fontWeight = 'bold'; // Estilo negrita
-    descripcionP.style.fontSize = '16px'; // Tamaño de letra
+    descripcionP.style.fontWeight = 'bold';
+    descripcionP.style.fontSize = '16px';
 
+    dateDescSection.appendChild(descripcionP);
 
-    dateDescSection.appendChild(descripcionP); // Descripción después
-
-    
-    // Creamos un elemento de párrafo para el centro de estudios si se proporciona
     if (typeof centroEstudios !== 'undefined') {
         var centroEstudiosP = document.createElement('p');
-        centroEstudiosP.textContent = "" + centroEstudios;
-        dateDescSection.appendChild(centroEstudiosP); // Centro de estudios después
+        centroEstudiosP.textContent = centroEstudios;
+        dateDescSection.appendChild(centroEstudiosP);
     }
 
-    // Agregamos los elementos de párrafo al contenedor de fecha y descripción
-    dateDescSection.appendChild(fechaP); // Fecha primero
-
+    dateDescSection.appendChild(fechaP);
 
     content.appendChild(imgSection);
     content.appendChild(dateDescSection);
@@ -128,40 +120,16 @@ function crearEvento(fecha, descripcion, color, imagenURL, centroEstudios) {
 
     if (color === 'rojo') {
         container.classList.add('right');
-        content.style.background = 'linear-gradient(to bottom, #FF9F9C, #ffffff)'; // Degradado de rojo a blanco (vertical)
+        content.style.background = 'linear-gradient(to bottom, #FF9F9C, #ffffff)';
     } else if (color === 'verde') {
         container.classList.add('left');
-        content.style.background = 'linear-gradient(to bottom, #5CD7A3, #ffffff)'; // Degradado de verde a blanco (vertical)
+        content.style.background = 'linear-gradient(to bottom, #5CD7A3, #ffffff)';
     } else if (color === 'azul') {
         container.classList.add('left');
-        content.style.background = 'linear-gradient(to bottom, #87A5EF, #ffffff)'; // Degradado de azul a blanco (vertical)
+        content.style.background = 'linear-gradient(to bottom, #87A5EF, #ffffff)';
     }
 
-    // Eliminar el borde inferior del degradado
-    content.style.borderBottom = 'none'; // Cambiado a 'none' para asegurar que no haya borde inferior
+    content.style.borderBottom = 'none';
 
     return container;
-}
-
-
-
-
-
-
-
-
-
-
-// Función para ordenar los eventos por fecha
-function ordenarEventosPorFecha() {
-    var timeline = document.getElementById('timeline');
-    var eventosOrdenados = Array.from(timeline.children).sort(function(a, b) {
-        var fechaA = new Date(a.id.split(' - ')[0]);
-        var fechaB = new Date(b.id.split(' - ')[0]);
-        return fechaA - fechaB;
-    });
-
-    eventosOrdenados.forEach(function(evento) {
-        timeline.appendChild(evento);
-    });
 }
