@@ -19,7 +19,7 @@ var eventos = [
     { fecha: '2023-2024', descripcion: 'GRADO DE PSICOLOGÍA.', centroEstudios: 'Universidad Nacional de Eduación a Distancia (UNED)', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/unedRojo.png' },
     { fecha: '2023', descripcion: 'Voluntario/cocinero ', centroEstudios: 'ONG cocinar', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/cocinando.png' },
     { fecha: '2023', descripcion: 'ALEMÁN Y FRANCÉS.', centroEstudios: 'EOI La Pau', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/eoilapau.png' },
-    { fecha: '2022-2023', descripcion: 'SOFTWARE DEVELOPER', centroEstudios: 'ITEQUIA', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itequia.png' },
+    { fecha: '2022-2023', descripcion: 'I worked as SOFTWARE DEVELOPER', centroEstudios: 'ITEQUIA', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/itequia.png' },
     { fecha: '2021-2023', descripcion: 'VARIOS CERTIFICADOS', centroEstudios: 'UDEMY', color: 'verde', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/udemyGreen2.png' },
     { fecha: '2018-2022', descripcion: 'Inspector', centroEstudios: 'Strength. Public Space Control', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/strrength.jpg' },    
     { fecha: '2017-2018', descripcion: 'Administrativo', centroEstudios: 'ToiToi', color: 'rojo', imagenURL: 'https://raw.githubusercontent.com/DamianPyCoder/Website___Portfolio/main/icons/timeline/toitoiRed.png' },
@@ -127,16 +127,36 @@ function crearEvento(fecha, descripcion, color, imagenURL, centroEstudios) {
     content.appendChild(dateDescSection);
     container.appendChild(content);
 
-    if (color === 'rojo') {
+
+    // Verificar si la descripción comienza con "I worked"
+    if (descripcion.startsWith('I worked')) {
+        container.classList.add('left');
+    } else {
         container.classList.add('right');
+    }
+
+    // Aplicar estilos según el color
+    if (color === 'rojo') {
         content.style.background = 'linear-gradient(to bottom, #FF9F9C, #ffffff)';
     } else if (color === 'verde') {
-        container.classList.add('left');
         content.style.background = 'linear-gradient(to bottom, #5CD7A3, #ffffff)';
     } else if (color === 'azul') {
-        container.classList.add('left');
         content.style.background = 'linear-gradient(to bottom, #87A5EF, #ffffff)';
     }
+
+
+
+
+    // if (color === 'rojo') {
+    //     container.classList.add('right');
+    //     content.style.background = 'linear-gradient(to bottom, #FF9F9C, #ffffff)';
+    // } else if (color === 'verde') {
+    //     container.classList.add('left');
+    //     content.style.background = 'linear-gradient(to bottom, #5CD7A3, #ffffff)';
+    // } else if (color === 'azul') {
+    //     container.classList.add('left');
+    //     content.style.background = 'linear-gradient(to bottom, #87A5EF, #ffffff)';
+    // }
 
     content.style.borderBottom = 'none';
 
