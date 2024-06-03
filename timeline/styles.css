@@ -1,5 +1,4 @@
-styles.css
-
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,20 +9,23 @@ body {
 .timeline {
     position: relative;
     max-width: 1200px;
-    margin: 50px auto; /* Agregamos un margen superior para separar el timeline del resto de la página */
+    margin: 50px auto;
 }
 
-/* Agregamos la línea vertical */
+
+
+
+/* Línea vertical */
 .timeline::before {
     content: '';
     position: absolute;
-    width: 2px; /* Ancho de la línea */
+    width: 2px;
     background-color: #333;
     top: 0;
     bottom: 0;
-    left: 50%; /* Posicionamos la línea en el centro */
-    margin-left: -1px; /* Corregimos la posición para que quede centrada */
-    z-index: 1; /* Aseguramos que la línea esté encima de los eventos */
+    left: 50%;
+    margin-left: -1px;
+    z-index: 1;
 }
 
 .container {
@@ -45,48 +47,27 @@ body {
     clear: both;
 }
 
-/*.content {
-    padding: 20px;
-    background-color: white;
-    position: relative;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 2; 
-}*/
-
 .content {
-
-    height: 20vh; /* El alto es el 50% de la altura de la ventana */
+    height: 20vh;
     padding: 10px;
-    /* Usamos una imagen de fondo semitransparente */
     background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
-    background-color: white; /* Color de fondo para navegadores que no soportan gradientes */
+    background-color: white;
     border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
-    /* border: 1px solid rgba(255, 255, 255, 0.3); */ /* Esta línea agrega el borde translúcido */
-    z-index: 2; /* Aseguramos que el contenido esté encima de la línea */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
-
-
-
-
-/* Agregamos estilos para las dos secciones dentro de la caja de texto */
 .img-section {
-    width: 30%; /* Ocupa la mitad del ancho */
-    float: left; /* Alinea a la izquierda */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
+    width: 30%;
+    float: left;
+    box-sizing: border-box;
 }
 
 .date-desc-section {
-    width: 70%; /* Ocupa la mitad del ancho */
-    float: left; /* Alinea a la izquierda */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
+    width: 70%;
+    float: left;
+    box-sizing: border-box;
 }
-
-
-
-
 
 .buttons {
     margin-top: 20px;
@@ -96,4 +77,55 @@ body {
     .container {
         width: 100%;
     }
+    
+    .container.left::after,
+    .container.right::before {
+        display: none; /* Ocultar línea horizontal en dispositivos móviles */
+    }
+
+    /* Ocultar línea vertical en dispositivos móviles */
+    .timeline::before {
+        opacity: 0; /* Hacer la línea totalmente transparente */
+    }
+}
+
+.linea {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 50%;
+    width: 3px;
+    background-color: #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.linea:hover {
+    background-color: #aaa;
+    box-shadow: 0px 0px 20px rgba(224, 224, 224, 0.7);
+    width: 4px;
+}
+
+/* Agregar línea horizontal con tamaño fijo */
+.container.left::after,
+.container.right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px; /* Tamaño fijo */
+    height: 2px;
+    background-color: #ccc;
+    z-index: 1;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container.left::after {
+    left: 100%;
+    margin-left: 0px; /* Ajustar separación de la caja */
+}
+
+.container.right::before {
+    right: 100%;
+    margin-right: 0px;
 }
